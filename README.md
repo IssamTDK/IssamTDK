@@ -35,7 +35,10 @@ smaller, faster, and more dependable in real-world products.
 
 ---
 
-## GitHub Activity
+## Engineering Contributions
+
+A snapshot of my ongoing work in embedded AI, signal processing, and
+intelligent sensing.
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=IssamTDK&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&theme=default" height="165" alt="Issam's GitHub statistics" />
