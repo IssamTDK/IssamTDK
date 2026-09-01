@@ -15,10 +15,10 @@
 <br />
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Focus-Sensor%20Intelligence-E60012?style=flat-square" alt="Sensor Intelligence" />
-  <img src="https://img.shields.io/badge/Domain-TinyML-20232A?style=flat-square" alt="TinyML" />
-  <img src="https://img.shields.io/badge/Target-Embedded%20AI-20232A?style=flat-square" alt="Embedded AI" />
-  <img src="https://img.shields.io/badge/Location-Grenoble%2C%20France-20232A?style=flat-square" alt="Grenoble, France" />
+  <img src="https://img.shields.io/badge/Focus-Sensor%20Intelligence-0057B8?style=flat-square" alt="Sensor Intelligence" />
+  <img src="https://img.shields.io/badge/Domain-TinyML-0B1F3A?style=flat-square" alt="TinyML" />
+  <img src="https://img.shields.io/badge/Target-Embedded%20AI-0B1F3A?style=flat-square" alt="Embedded AI" />
+  <img src="https://img.shields.io/badge/Location-Grenoble%2C%20France-0B1F3A?style=flat-square" alt="Grenoble, France" />
 </div>
 
 ## About me
@@ -65,6 +65,22 @@ physical signal  →  signal processing  →  machine learning  →  embedded in
 I am especially interested in **context-aware sensing**, **sensor foundation models**, **multimodal edge AI**, and new applications that extract more value from sensors already present in everyday devices.
 
 If you are working on TinyML, time-series learning, acoustic intelligence, or novel sensing applications, I am always glad to exchange ideas.
+
+## Contribution pulse
+
+<div align="center">
+  <a href="https://github.com/IssamTDK?tab=overview">
+    <img
+      width="100%"
+      src="https://ghchart.rshah.org/0067D9/IssamTDK"
+      alt="Issam Sayyaf's GitHub contribution calendar"
+    />
+  </a>
+</div>
+
+<div align="center">
+  <sub>Engineering progress over vanity metrics—commits, experiments, reviews, and continuous improvement.</sub>
+</div>
 
 ---
 
