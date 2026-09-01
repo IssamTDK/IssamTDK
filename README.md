@@ -35,18 +35,18 @@ smaller, faster, and more dependable in real-world products.
 
 ---
 
-## Engineering Contributions
+## GitHub Activity
 
-A snapshot of my ongoing work in embedded AI, signal processing, and
-intelligent sensing.
+My GitHub activity reflects a practical, engineering-focused approach to
+intelligent sensing—from algorithm research and signal processing to tested,
+reusable software for embedded systems.
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=IssamTDK&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&theme=default" height="165" alt="Issam's GitHub statistics" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=IssamTDK&layout=compact&langs_count=8&hide_border=true&theme=default" height="165" alt="Most used programming languages" />
-</p>
+
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=IssamTDK&hide_border=true&theme=default" height="165" alt="GitHub contribution streak" />
+  <a href="https://github.com/IssamTDK">
+    <img src="https://img.shields.io/badge/Explore_my_GitHub_work-181717?style=for-the-badge&logo=github&logoColor=white" alt="Explore my GitHub work" />
+  </a>
 </p>
 
 ---
