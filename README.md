@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/issam-header.svg" width="100%" alt="Issam Sayyaf — Sensor Intelligence, TinyML and Edge AI" />
+  <img src="./assets/issam.svg" width="100%" alt="Issam Sayyaf — Sensor Intelligence, TinyML and Edge AI" />
 </div>
 
 <br />
