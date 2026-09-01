@@ -1,73 +1,79 @@
-<h1 align="center">Issam Sayyaf</h1>
+<div align="center">
+  <img src="./assets/issam-header.svg" width="100%" alt="Issam Sayyaf — Sensor Intelligence, TinyML and Edge AI" />
+</div>
 
-<p align="center">
-  <b>Edge AI &amp; Sensor Algorithms Engineer</b> · TDK InvenSense (Movea SAS), Grenoble<br>
-  <sub>I turn raw sensor streams into models that run in kilobytes.</sub>
+<br />
+
+<div align="center">
+  <strong>I turn real-world sensor signals into reliable intelligence that runs on the edge.</strong>
+</div>
+
+<div align="center">
+  <sub>Senior Software Algorithms Engineer @ TDK InvenSense · Grenoble, France</sub>
+</div>
+
+<br />
+
+<div align="center">
+  <img src="https://img.shields.io/badge/Focus-Sensor%20Intelligence-E60012?style=flat-square" alt="Sensor Intelligence" />
+  <img src="https://img.shields.io/badge/Domain-TinyML-20232A?style=flat-square" alt="TinyML" />
+  <img src="https://img.shields.io/badge/Target-Embedded%20AI-20232A?style=flat-square" alt="Embedded AI" />
+  <img src="https://img.shields.io/badge/Location-Grenoble%2C%20France-20232A?style=flat-square" alt="Grenoble, France" />
+</div>
+
+## About me
+
+I am a sensor-algorithms engineer working where **signal processing, machine learning, and embedded systems** meet. I build DSP pipelines and compact learning models for time-series data, then optimize them to operate under strict memory, latency, and power budgets.
+
+My background includes a PhD focused on **positioning and anomaly detection for sensor and radio signals**. Today, I work across the complete path from raw measurements to deployable on-device intelligence.
+
+```text
+physical signal  →  signal processing  →  machine learning  →  embedded intelligence
+```
+
+## Engineering focus
+
+| Signal intelligence | Edge machine learning | Embedded execution |
+| :--- | :--- | :--- |
+| IMU and motion sensing | TinyML and time-series models | Memory-aware implementation |
+| Microphone and acoustic DSP | Activity and context recognition | Low-latency streaming |
+| Ultrasonic sensing | Anomaly and event detection | Power-conscious inference |
+| Sensor fusion | Model compression and quantization | Production validation |
+
+## What I care about
+
+- Building algorithms that remain robust outside the laboratory
+- Converting research ideas into testable, maintainable software
+- Finding new intelligence in IMU, acoustic, and ultrasonic signals
+- Designing for the real constraints of embedded products—not only benchmark accuracy
+
+## Technical toolbox
+
+<p>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white" alt="C" />
+  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++" />
+  <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy" />
+  <img src="https://img.shields.io/badge/SciPy-8CAAE6?style=for-the-badge&logo=scipy&logoColor=white" alt="SciPy" />
+  <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow" />
+  <img src="https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white" alt="pytest" />
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/C%2FC%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white">
-  <img src="https://img.shields.io/badge/TFLite%20Micro-FF6F00?style=flat-square&logo=tensorflow&logoColor=white">
-  <img src="https://img.shields.io/badge/CMSIS--NN%2FDSP-0091BD?style=flat-square&logo=arm&logoColor=white">
-  <img src="https://img.shields.io/badge/Zephyr-7B2CBF?style=flat-square&logo=zephyrprojectrtos&logoColor=white">
-  <img src="https://img.shields.io/badge/Yocto-1E4F8A?style=flat-square&logo=yocto&logoColor=white">
-  <img src="https://img.shields.io/badge/STM32-03234B?style=flat-square&logo=stmicroelectronics&logoColor=white">
-  <img src="https://img.shields.io/badge/nRF-00A9CE?style=flat-square&logo=nordicsemiconductor&logoColor=white">
-</p>
+## Current interests
+
+I am especially interested in **context-aware sensing**, **sensor foundation models**, **multimodal edge AI**, and new applications that extract more value from sensors already present in everyday devices.
+
+If you are working on TinyML, time-series learning, acoustic intelligence, or novel sensing applications, I am always glad to exchange ideas.
 
 ---
 
-### What I work on
+<div align="center">
+  <a href="https://github.com/IssamTDK?tab=repositories"><strong>Explore my repositories</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/IssamTDK"><strong>Follow my work</strong></a>
+</div>
 
-I design DSP front-ends and small deep learning models for time-series sensor data:
-IMU, microphone, ultrasonic ToF, pressure, magnetometer. The models ship on MCUs
-and embedded Linux, not on servers. Every design choice is a budget choice.
-
-```mermaid
-flowchart LR
-  A["Sensor<br/>IMU · mic · ToF"] --> B["DSP front-end<br/>filter · window · FFT"]
-  B --> C["Feature / embedding<br/>fixed point"]
-  C --> D["Tiny model<br/>CNN · TCN · LSTM · Transformer"]
-  D --> E["int8 deploy<br/>TFLM · CMSIS-NN"]
-  E --> F["MCU / edge Linux<br/>kB RAM · mW power"]
-```
-
-### Design rules I follow
-
-- **Budget first.** Flash, RAM (tensor arena included), latency per window, and mA before architecture.
-- **int8 by default.** Float is a debug mode, not a product.
-- **Move work into the front-end.** A good feature is cheaper than four extra layers.
-- **Measure on target.** Cycle counts on the device, not FLOPs on a slide.
-- **Streaming, not batches.** Ring buffers, fixed windows, bounded worst-case time.
-
-### Selected work
-
-| Project | What it does | Footprint |
-|---|---|---|
-| [`repo-name`](#) | Anomaly detection for multi-sensor positioning (IMU / 5G / GNSS) | `— kB flash` · `— kB RAM` · `— ms/window` |
-| [`repo-name`](#) | Real-time IMU activity / gesture pipeline on Cortex-M | `— kB flash` · `— kB RAM` · `— ms/window` |
-| [`repo-name`](#) | Audio front-end and keyword model for MCU class devices | `— kB flash` · `— kB RAM` · `— ms/window` |
-| [`repo-name`](#) | Yocto BSP with secure boot (TF-A, OP-TEE, dm-verity) and SWUpdate OTA | — |
-
-<sub>Numbers are measured on target, not estimated.</sub>
-
-### Research
-
-- **PhD**, Université Gustave Eiffel — GEOLOC Lab, Nantes (2026).
-  AI-based anomaly detection for resilient multi-sensor positioning.
-- **MSc**, Università della Calabria — 110/110 cum laude.
-- 10+ IEEE papers on sensor fusion, anomaly detection, and time-series deep learning.
-  → [Google Scholar](#) · [ORCID](#)
-
-### Now
-
-- Sensor algorithms and edge AI at TDK InvenSense.
-- Writing a unified, modality-independent framework for positioning anomaly detection.
-- Reading and notes on TDK sensor families: SmartMotion IMU, SmartSound mic, SmartSonic ToF, Hall / TMR.
-
-<p align="center">
-  <a href="#">LinkedIn</a> ·
-  <a href="#">Scholar</a> ·
-  <a href="mailto:you@example.com">Email</a>
-</p>
+<div align="center">
+  <sub>Professional affiliation shown for identification only. Views and projects shared here are my own.</sub>
+</div>
