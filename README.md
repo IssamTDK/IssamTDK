@@ -1,66 +1,64 @@
 # Hi, I'm Issam 👋
 
 ### Senior Software Algorithms Engineer @ TDK InvenSense
+Grenoble, France
 
-📍 Grenoble, France
+I build efficient DSP algorithms and TinyML models that turn raw sensor data
+into reliable, real-time intelligence on resource-constrained embedded devices.
 
-I design signal-processing algorithms and TinyML models that transform raw sensor data into reliable, real-time intelligence—running on resource-constrained microcontrollers.
+My work focuses on the complete path from research to deployment:
 
-My work sits at the intersection of:
+- **Signal processing:** IMU, microphone, ultrasonic, vibration, and radio signals
+- **TinyML:** keyword spotting, activity recognition, and anomaly detection
+- **Embedded AI:** models optimized for memory, latency, and power
+- **Sensor intelligence:** sensor fusion, positioning, and context awareness
+- **Engineering tools:** Python libraries, simulation, testing, and CI pipelines
 
-* 🎯 IMU, microphone, ultrasonic, and radio-signal processing
-* 🧠 TinyML for keyword spotting, activity recognition, and anomaly detection
-* ⚙️ Embedded AI optimized for memory, latency, and power
-* 📡 Sensor fusion, positioning, and context-aware sensing
-* 🔬 Research-driven algorithm development and deployment
-
-> My goal is to make intelligent sensing practical at the edge—fast, efficient, and small enough to run on a few hundred kilobytes of RAM.
+> Turning sensor signals into intelligent decisions at the edge.
 
 🎓 PhD in Positioning and Anomaly Detection for Sensor and Radio Signals
 
 ---
 
-## What I Build
+## What I Contribute
 
-* Real-time DSP pipelines for embedded sensors
-* Machine-learning algorithms for time-series data
-* Lightweight neural networks for microcontrollers
-* Audio and vibration analysis systems
-* Anomaly-detection and localization solutions
-* Production-ready Python tools for testing, simulation, and deployment
+I contribute algorithms and engineering tools that help make intelligent sensing
+smaller, faster, and more dependable in real-world products.
+
+| Area | Contribution |
+| --- | --- |
+| DSP | Design and optimization of real-time signal-processing pipelines |
+| TinyML | Development and deployment of lightweight models for microcontrollers |
+| Anomaly detection | Detection of unusual behavior in complex time-series signals |
+| Sensor fusion | Combining multiple sensors for robust positioning and recognition |
+| Software engineering | Maintainable Python packages, automated tests, and reproducible workflows |
 
 ---
 
-## GitHub Contributions
+## GitHub Activity
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=IssamTDK&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&theme=default" height="165" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=IssamTDK&layout=compact&langs_count=8&hide_border=true&theme=default" height="165" />
+  <img src="https://github-readme-stats.vercel.app/api?username=IssamTDK&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&theme=default" height="165" alt="Issam's GitHub statistics" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=IssamTDK&layout=compact&langs_count=8&hide_border=true&theme=default" height="165" alt="Most used programming languages" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=IssamTDK&hide_border=true&theme=default" height="165" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=IssamTDK&hide_border=true&theme=default" height="165" alt="GitHub contribution streak" />
 </p>
 
 ---
 
-## Current Focus
+## Current Interests
 
-🌱 TinyML and edge AI
-📈 Sensor-based anomaly detection
-🎙️ Audio and vibration intelligence
-🧭 Positioning and sensor fusion
-🛠️ Robust algorithms for real-world embedded systems
+`TinyML` · `Edge AI` · `Sensor Fusion` · `DSP` · `Anomaly Detection` · `Audio AI` · `Vibration Intelligence`
 
 ---
 
-## Connect With Me
+## Connect
 
-[![Website](https://img.shields.io/badge/Website-issam--sayyaf.com-0A66C2?style=flat-square\&logo=googlechrome\&logoColor=white)](https://issam-sayyaf.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Issam%20Sayyaf-0A66C2?style=flat-square\&logo=linkedin\&logoColor=white)](https://www.linkedin.com/in/issamsayyaf/)
-
----
+[![Website](https://img.shields.io/badge/Website-issam--sayyaf.com-0A66C2?style=flat-square&logo=googlechrome&logoColor=white)](https://issam-sayyaf.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Issam%20Sayyaf-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/issamsayyaf/)
 
 <p align="center">
-  <i>Turning sensor signals into intelligent decisions.</i>
+  <i>Designing the sensing intelligence of tomorrow.</i>
 </p>
