@@ -55,30 +55,6 @@ physical signal  →  signal processing  →  machine learning  →  embedded in
 
 If you are working on TinyML, time-series learning, acoustic intelligence, or novel sensing applications, I am glad to exchange ideas.
 
-## Contribution activity
-
-<!-- These cards are generated daily by .github/workflows/profile-statistics.yml and
-     committed into this repository, so they render from static files rather than
-     depending on a third-party service being up. Each <picture> serves the dark
-     card to GitHub's dark theme and the light card to everything else. -->
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile-summary-card-output/github_dark/0-profile-details.svg" />
-    <img width="100%" src="./profile-summary-card-output/github/0-profile-details.svg" alt="Contribution overview: total commits, pull requests, issues and repositories contributed to" />
-  </picture>
-</p>
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile-summary-card-output/github_dark/3-stats.svg" />
-    <img width="49%" src="./profile-summary-card-output/github/3-stats.svg" alt="Aggregate GitHub statistics" />
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile-summary-card-output/github_dark/4-productive-time.svg" />
-    <img width="49%" src="./profile-summary-card-output/github/4-productive-time.svg" alt="Commit distribution by hour of day" />
-  </picture>
-</p>
 
 <div align="center">
   <sub>Updated daily from GitHub contribution data.</sub>
