@@ -16,6 +16,11 @@ concurrency:
   group: profile-statistics
   cancel-in-progress: false
 
+env:
+  # Must be a PAT. The built-in GITHUB_TOKEN cannot see private contributions,
+  # and falling back to it silently is what produced public-only numbers before.
+  CARD_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -23,22 +28,68 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Verify the token can see private contributions
+        run: |
+          if [ -z "$CARD_TOKEN" ]; then
+            echo "::error::SUMMARY_GITHUB_TOKEN is not set; cards would report public activity only."
+            exit 1
+          fi
+          read -r -d '' Q <<'GQL' || true
+          query($l:String!){
+            user(login:$l){
+              contributionsCollection{
+                contributionCalendar{ totalContributions }
+                restrictedContributionsCount
+                totalCommitContributions
+                totalRepositoriesWithContributedCommits
+              }
+            }
+          }
+          GQL
+          payload=$(jq -nc --arg q "$Q" --arg l "${{ github.repository_owner }}" \
+                     '{query:$q, variables:{l:$l}}')
+          resp=$(curl -sS -H "Authorization: bearer $CARD_TOKEN" \
+                      -H "Content-Type: application/json" \
+                      -d "$payload" https://api.github.com/graphql)
+
+          if [ "$(echo "$resp" | jq -r 'has("errors")')" = "true" ]; then
+            echo "::error::GraphQL error: $(echo "$resp" | jq -r '.errors[0].message')"
+            exit 1
+          fi
+
+          c=$(echo "$resp" | jq '.data.user.contributionsCollection')
+          total=$(echo "$c" | jq -r '.contributionCalendar.totalContributions')
+          priv=$(echo  "$c" | jq -r '.restrictedContributionsCount')
+
+          {
+            echo "| Metric | Value |"
+            echo "| :--- | ---: |"
+            echo "| Total contributions (last year) | $total |"
+            echo "| ...of which private / restricted | $priv |"
+            echo "| Commit contributions | $(echo "$c" | jq -r '.totalCommitContributions') |"
+            echo "| Repositories contributed to | $(echo "$c" | jq -r '.totalRepositoriesWithContributedCommits') |"
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+
+          if [ "$priv" = "0" ]; then
+            echo "::warning::No private contributions counted. Check the PAT has 'repo' (classic) or private-repo read (fine-grained) access, and that 'Include private contributions on my profile' is enabled in profile settings."
+          fi
+
       # Two passes, one per theme. AUTO_PUSH is off so a single commit lands
       # both sets instead of racing two pushes against each other.
       - name: Generate light-theme cards
         uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
-          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
         with:
           USERNAME: ${{ github.repository_owner }}
           BRANCH_NAME: main
           UTC_OFFSET: 2
           AUTO_PUSH: false
+          THEME: github
+          NAME: Issam Sayyaf
           # Linguist ranks by bytes on disk, not authorship: vendored and
           # generated web assets otherwise dominate the language cards.
           EXCLUDE: JavaScript,HTML,CSS,SCSS
-          THEME: github
-          NAME: Issam Sayyaf
 
       - name: Stash light-theme cards
         run: cp -r profile-summary-card-output "$RUNNER_TEMP/light"
@@ -46,17 +97,15 @@ jobs:
       - name: Generate dark-theme cards
         uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
-          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
         with:
           USERNAME: ${{ github.repository_owner }}
           BRANCH_NAME: main
           UTC_OFFSET: 2
           AUTO_PUSH: false
-          # Linguist ranks by bytes on disk, not authorship: vendored and
-          # generated web assets otherwise dominate the language cards.
-          EXCLUDE: JavaScript,HTML,CSS,SCSS
           THEME: github_dark
           NAME: Issam Sayyaf
+          EXCLUDE: JavaScript,HTML,CSS,SCSS
 
       - name: Merge both themes
         run: |
@@ -65,7 +114,6 @@ jobs:
           mkdir -p profile-summary-card-output
           cp -r "$RUNNER_TEMP/light/." profile-summary-card-output/
           cp -r "$RUNNER_TEMP/dark/."  profile-summary-card-output/
-          echo "Generated:"
           find profile-summary-card-output -name '*.svg' | sort
 
       - name: Fail if a card is missing
