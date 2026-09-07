@@ -1,29 +1,90 @@
-name: Update GitHub profile statistics
+name: Profile statistics
 
 on:
   schedule:
     - cron: "15 2 * * *"
+  push:
+    branches: [main]
+    paths-ignore:
+      - "profile-summary-card-output/**"
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: profile-statistics
+  cancel-in-progress: false
+
 jobs:
-  generate-statistics:
+  generate:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - uses: vn7n24fzkq/github-profile-summary-cards@release
+      # Two passes, one per theme. AUTO_PUSH is off so a single commit lands
+      # both sets instead of racing two pushes against each other.
+      - name: Generate light-theme cards
+        uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
-          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
         with:
-          USERNAME: IssamTDK
+          USERNAME: ${{ github.repository_owner }}
           BRANCH_NAME: main
           UTC_OFFSET: 2
-          AUTO_PUSH: true
+          AUTO_PUSH: false
+          THEME: github
+          NAME: Issam Sayyaf
+
+      - name: Stash light-theme cards
+        run: cp -r profile-summary-card-output "$RUNNER_TEMP/light"
+
+      - name: Generate dark-theme cards
+        uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
+        with:
+          USERNAME: ${{ github.repository_owner }}
+          BRANCH_NAME: main
+          UTC_OFFSET: 2
+          AUTO_PUSH: false
           THEME: github_dark
-          ANIMATION: load
-          DURATION: 2.5
-          NAME: Issam SAYYAF
+          NAME: Issam Sayyaf
+
+      - name: Merge both themes
+        run: |
+          cp -r profile-summary-card-output "$RUNNER_TEMP/dark"
+          rm -rf profile-summary-card-output
+          mkdir -p profile-summary-card-output
+          cp -r "$RUNNER_TEMP/light/." profile-summary-card-output/
+          cp -r "$RUNNER_TEMP/dark/."  profile-summary-card-output/
+          echo "Generated:"
+          find profile-summary-card-output -name '*.svg' | sort
+
+      - name: Fail if a card is missing
+        run: |
+          missing=0
+          for theme in github github_dark; do
+            for card in 0-profile-details 1-repos-per-language \
+                        2-most-commit-language 3-stats 4-productive-time; do
+              f="profile-summary-card-output/$theme/$card.svg"
+              if [ ! -s "$f" ]; then
+                echo "::error::missing or empty: $f"
+                missing=1
+              fi
+            done
+          done
+          exit $missing
+
+      - name: Commit refreshed cards
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile-summary-card-output
+          if git diff --staged --quiet; then
+            echo "Statistics unchanged; nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore: refresh profile statistics [skip ci]"
+          git push
