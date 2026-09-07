@@ -68,15 +68,57 @@ If you are working on TinyML, time-series learning, acoustic intelligence, or no
 
 ## Contribution pulse
 
-<div align="center">
-  <a href="https://github.com/IssamTDK?tab=overview">
+## GitHub Analytics
+
+<!-- Complete contribution overview -->
+<p align="center">
+  <a href="https://github.com/IssamTDK">
     <img
       width="100%"
-      src="https://ghchart.rshah.org/0067D9/IssamTDK"
-      alt="Issam Sayyaf's GitHub contribution calendar"
+      src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=IssamTDK&theme=github_dark&title_color=0067D9&text_color=C9D1D9&bg_color=0D1117&border_color=30363D&icon_color=58A6FF&chart_color=0067D9&animation=load&duration=2.5"
+      alt="Issam Sayyaf's GitHub contribution overview"
     />
   </a>
-</div>
+</p>
+
+<!-- Statistics and productive time -->
+<p align="center">
+  <img
+    width="49%"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=IssamTDK&theme=github_dark&title_color=0067D9&text_color=C9D1D9&bg_color=0D1117&border_color=30363D&icon_color=58A6FF&animation=rise"
+    alt="GitHub statistics"
+  />
+  <img
+    width="49%"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=IssamTDK&theme=github_dark&utcOffset=2&title_color=0067D9&text_color=C9D1D9&bg_color=0D1117&border_color=30363D&icon_color=58A6FF&animation=rise"
+    alt="GitHub productive time"
+  />
+</p>
+
+<!-- Language analytics -->
+<p align="center">
+  <img
+    width="49%"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=IssamTDK&theme=github_dark&title_color=0067D9&text_color=C9D1D9&bg_color=0D1117&border_color=30363D&icon_color=58A6FF&chart_color=0067D9&animation=load"
+    alt="Repositories per language"
+  />
+  <img
+    width="49%"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=IssamTDK&theme=github_dark&title_color=0067D9&text_color=C9D1D9&bg_color=0D1117&border_color=30363D&icon_color=58A6FF&chart_color=0067D9&animation=load"
+    alt="Most-used commit languages"
+  />
+</p>
+
+<!-- Contribution activity plot -->
+<p align="center">
+  <a href="https://github.com/IssamTDK">
+    <img
+      width="100%"
+      src="https://github-readme-activity-graph.vercel.app/graph?username=IssamTDK&bg_color=0D1117&color=C9D1D9&title_color=0067D9&line=0067D9&point=58A6FF&area=true&area_color=0067D9&border_color=30363D&radius=8&custom_title=Contribution%20Activity"
+      alt="GitHub contribution activity graph"
+    />
+  </a>
+</p>
 
 <div align="center">
   <sub>Engineering progress over vanity metrics—commits, experiments, reviews, and continuous improvement.</sub>
