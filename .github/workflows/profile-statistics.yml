@@ -1,0 +1,29 @@
+name: Update GitHub profile statistics
+
+on:
+  schedule:
+    - cron: "15 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-statistics:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
+        with:
+          USERNAME: IssamTDK
+          BRANCH_NAME: main
+          UTC_OFFSET: 2
+          AUTO_PUSH: true
+          THEME: github_dark
+          ANIMATION: load
+          DURATION: 2.5
+          NAME: Issam SAYYAF
