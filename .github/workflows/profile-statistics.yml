@@ -19,7 +19,8 @@ concurrency:
 env:
   # Must be a PAT. The built-in GITHUB_TOKEN cannot see private contributions,
   # and falling back to it silently is what produced public-only numbers before.
-  CARD_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
+  CARD_TOKEN: ${{ secrets.SUMMARY || secrets.SUMMARY_GITHUB_TOKEN }}
+  HAS_SUMMARY: ${{ secrets.SUMMARY != '' }}
 
 jobs:
   generate:
@@ -31,8 +32,15 @@ jobs:
       - name: Verify the token can see private contributions
         run: |
           if [ -z "$CARD_TOKEN" ]; then
-            echo "::error::SUMMARY_GITHUB_TOKEN is not set; cards would report public activity only."
+            echo "::error::No PAT found. Set a repository secret named SUMMARY"
+            echo "::error::(or SUMMARY_GITHUB_TOKEN). Without it the cards report"
+            echo "::error::public activity only."
             exit 1
+          fi
+          if [ "$HAS_SUMMARY" = "true" ]; then
+            echo "Using secret: SUMMARY"
+          else
+            echo "Using secret: SUMMARY_GITHUB_TOKEN"
           fi
           read -r -d '' Q <<'GQL' || true
           query($l:String!){
@@ -79,7 +87,7 @@ jobs:
       - name: Generate light-theme cards
         uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
-          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SUMMARY || secrets.SUMMARY_GITHUB_TOKEN }}
         with:
           USERNAME: ${{ github.repository_owner }}
           BRANCH_NAME: main
@@ -97,7 +105,7 @@ jobs:
       - name: Generate dark-theme cards
         uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
-          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SUMMARY || secrets.SUMMARY_GITHUB_TOKEN }}
         with:
           USERNAME: ${{ github.repository_owner }}
           BRANCH_NAME: main
