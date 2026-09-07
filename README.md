@@ -80,28 +80,14 @@ If you are working on TinyML, time-series learning, acoustic intelligence, or no
   </picture>
 </p>
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile-summary-card-output/github_dark/1-repos-per-language.svg" />
-    <img width="49%" src="./profile-summary-card-output/github/1-repos-per-language.svg" alt="Repositories by primary language" />
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile-summary-card-output/github_dark/2-most-commit-language.svg" />
-    <img width="49%" src="./profile-summary-card-output/github/2-most-commit-language.svg" alt="Languages by commit volume" />
-  </picture>
-</p>
-
 <div align="center">
-  <sub>Updated daily. Reflects public activity only.</sub>
+  <sub>Updated daily from GitHub contribution data.</sub>
 </div>
 
 ## Contact
 
-<!-- TODO: fill in the real URLs, then delete this comment. Remove any line you do not want public. -->
-
-- LinkedIn — <https://www.linkedin.com/in/>
-- Google Scholar — <https://scholar.google.com/citations?user=>
-- Email — `you@example.com`
+- LinkedIn — <https://www.linkedin.com/in/issamsayyaf/>
+- Email — `issam.sayyaf@tdk.com`
 
 ---
 
